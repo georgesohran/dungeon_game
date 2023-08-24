@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://dudee.tscn" type="PackedScene" id=1]
+[ext_resource path="res://lobby flor1.png" type="Texture" id=2]
+
+[node name="Lobby" type="Node2D"]
+
+[node name="flor" type="TextureRect" parent="."]
+margin_right = 256.0
+margin_bottom = 256.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dudee" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, 104 )

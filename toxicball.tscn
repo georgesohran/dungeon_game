@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://toxicball.png" type="Texture" id=2]
+[ext_resource path="res://toxicball.gd" type="Script" id=3]
+[ext_resource path="res://toxicball_rotation.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotation"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("toxicball_rotation:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -360.0 ]
+}
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 6.0
+
+[node name="toxicball" type="KinematicBody2D"]
+scale = Vector2( -1, 1 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
+anims/rotation = SubResource( 1 )
+
+[node name="toxicball_rotation" type="Position2D" parent="."]
+rotation = -6.28319
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="toxicball_rotation"]
+frames = SubResource( 4 )
+playing = true
+
+[node name="hitbox" parent="toxicball_rotation" instance=ExtResource( 1 )]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="toxicball_rotation/hitbox" index="0"]
+position = Vector2( 0, -23 )
+shape = SubResource( 5 )
+
+[node name="hitbox2" parent="toxicball_rotation" instance=ExtResource( 1 )]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="toxicball_rotation/hitbox2" index="0"]
+position = Vector2( 0, 23 )
+shape = SubResource( 6 )
+
+[connection signal="animation_finished" from="AnimationPlayer1" to="." method="_on_AnimationPlayer1_animation_finished"]
+
+[editable path="toxicball_rotation/hitbox"]
+[editable path="toxicball_rotation/hitbox2"]

@@ -1,0 +1,676 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://dudee.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rock1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://flor1.png" type="Texture" id=3]
+[ext_resource path="res://wood.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HealthtUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://edge.png" type="Texture" id=7]
+[ext_resource path="res://wall.png" type="Texture" id=8]
+[ext_resource path="res://fungy.png" type="Texture" id=9]
+[ext_resource path="res://heal potion.tscn" type="PackedScene" id=10]
+[ext_resource path="res://pointsUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://wizard_boss.tscn" type="PackedScene" id=12]
+
+[node name="e-world" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -144.0
+margin_top = -1000.0
+margin_right = 1784.0
+margin_bottom = 888.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="flor5" type="TextureRect" parent="flor"]
+margin_left = 1040.0
+margin_top = -288.0
+margin_right = 1360.0
+margin_bottom = -192.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 104, 72 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor" type="TextureRect" parent="flor"]
+margin_top = 32.0
+margin_right = 512.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 104, 72 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor2" type="TextureRect" parent="flor"]
+margin_left = 512.0
+margin_top = -96.0
+margin_right = 608.0
+margin_bottom = 224.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor3" type="TextureRect" parent="flor"]
+margin_left = 608.0
+margin_top = -96.0
+margin_right = 1120.0
+rect_pivot_offset = Vector2( 136, 52 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor4" type="TextureRect" parent="flor"]
+margin_left = 608.0
+margin_top = 128.0
+margin_right = 1120.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 104, 72 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor7" type="TextureRect" parent="flor"]
+margin_left = 608.0
+margin_top = 128.0
+margin_right = 1120.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 104, 72 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="flor6" type="TextureRect" parent="flor"]
+margin_left = 952.0
+margin_top = -704.0
+margin_right = 1376.0
+margin_bottom = -320.0
+rect_pivot_offset = Vector2( 104, 72 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collisons" type="StaticBody2D" parent="."]
+collision_mask = 17
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisons"]
+scale = Vector2( 1.02734, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 32, 498.374, 32, 498.374, -96, 1059.05, -96, 1090.19, -96, 1090.19, -320, 1074.62, -320, 1074.62, -112, 482.8, -112, 482.8, 16, 7.7871, 16 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisons"]
+position = Vector2( 0, 140 )
+scale = Vector2( 1.02734, 1 )
+polygon = PoolVector2Array( 0, -4, 0, -4, 0, 12, 482.8, 12, 482.8, 84, 482.8, 100, 1105.77, 100, 1105.77, -12, 1090.19, -12, 1090.76, 92, 498.374, 92, 498.374, -4 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collisons"]
+polygon = PoolVector2Array( -16, 0, -16, 152, 0, 152, 0, 0 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collisons"]
+polygon = PoolVector2Array( 608, 8, 608, 128, 1120, 128, 1216, 8 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="collisons"]
+polygon = PoolVector2Array( 1216, 8, 1216, -256, 1216, -320, 1224, -320, 1224, 0 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="collisons"]
+polygon = PoolVector2Array( 944, -712, 1384, -712, 1384, -320, 1384, -312, 1384, -304, 1224, -304, 1224, -320, 1376, -320, 1376, -704, 952, -704, 952, -320, 1104, -320, 1104, -304, 944, -304 )
+
+[node name="fungi" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="fungi"]
+position = Vector2( 8, 80 )
+texture = ExtResource( 9 )
+
+[node name="Sprite5" type="Sprite" parent="fungi"]
+position = Vector2( 208, 80 )
+texture = ExtResource( 9 )
+
+[node name="Sprite4" type="Sprite" parent="fungi"]
+position = Vector2( 152, 40 )
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="fungi"]
+position = Vector2( 24, 112 )
+texture = ExtResource( 9 )
+
+[node name="Sprite3" type="Sprite" parent="fungi"]
+position = Vector2( 128, 64 )
+texture = ExtResource( 9 )
+
+[node name="Sprite6" type="Sprite" parent="fungi"]
+position = Vector2( 152, 96 )
+texture = ExtResource( 9 )
+
+[node name="Sprite7" type="Sprite" parent="fungi"]
+position = Vector2( 240, 112 )
+texture = ExtResource( 9 )
+
+[node name="Sprite8" type="Sprite" parent="fungi"]
+position = Vector2( 328, 88 )
+texture = ExtResource( 9 )
+
+[node name="Sprite9" type="Sprite" parent="fungi"]
+position = Vector2( 424, 72 )
+texture = ExtResource( 9 )
+
+[node name="Sprite10" type="Sprite" parent="fungi"]
+position = Vector2( 464, 88 )
+texture = ExtResource( 9 )
+
+[node name="Sprite11" type="Sprite" parent="fungi"]
+position = Vector2( 496, 48 )
+rotation = 1.57079
+texture = ExtResource( 9 )
+
+[node name="Sprite12" type="Sprite" parent="fungi"]
+position = Vector2( 496, 48 )
+rotation = 1.57079
+texture = ExtResource( 9 )
+
+[node name="potions" type="Node2D" parent="."]
+
+[node name="heal potion3" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 264, 104 )
+
+[node name="heal potion4" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 544, -8 )
+
+[node name="heal potion8" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1112, 216 )
+
+[node name="heal potion9" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1112, 192 )
+
+[node name="heal potion10" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1112, 168 )
+
+[node name="heal potion11" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1112, 152 )
+
+[node name="heal potion12" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1160, -264 )
+
+[node name="heal potion15" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 960, -328 )
+
+[node name="heal potion16" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1368, -328 )
+
+[node name="heal potion13" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1200, -264 )
+
+[node name="heal potion14" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 1168, -256 )
+
+[node name="heal potion6" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 592, 64 )
+
+[node name="heal potion7" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 896, -64 )
+
+[node name="heal potion2" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 440, 120 )
+
+[node name="heal potion5" parent="potions" instance=ExtResource( 10 )]
+position = Vector2( 240, 40 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 96, 88 )
+current = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthtUI" parent="UI" instance=ExtResource( 6 )]
+margin_right = 80.0
+
+[node name="PointsUI" parent="UI" instance=ExtResource( 11 )]
+margin_left = 128.0
+margin_right = 168.0
+
+[node name="walls" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall" type="TextureRect" parent="walls"]
+margin_top = -12.0
+margin_right = 512.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall2" type="TextureRect" parent="walls"]
+margin_left = 512.0
+margin_top = -140.0
+margin_right = 1120.0
+margin_bottom = -96.0
+rect_pivot_offset = Vector2( 349.904, 22 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall3" type="TextureRect" parent="walls"]
+margin_left = 608.0
+margin_top = 84.0
+margin_right = 1120.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 349.904, 22 )
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="rocks" type="YSort" parent="YSort"]
+
+[node name="rock1" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 280, 80 )
+
+[node name="rock4" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 184, 56 )
+
+[node name="rock2" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 352, 48 )
+
+[node name="rock3" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 392, 104 )
+
+[node name="rock5" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 464, 40 )
+
+[node name="rock6" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 560, -56 )
+
+[node name="rock7" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 632, -56 )
+
+[node name="rock8" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 856, -16 )
+
+[node name="rock9" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 1032, -88 )
+
+[node name="rock11" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 1000, 136 )
+
+[node name="rock12" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 760, 208 )
+
+[node name="rock13" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 544, 208 )
+
+[node name="rock14" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 661.48, 138.896 )
+
+[node name="rock10" parent="YSort/rocks" instance=ExtResource( 2 )]
+position = Vector2( 1160, -136 )
+
+[node name="wood" type="YSort" parent="YSort"]
+
+[node name="Node2D" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 64, 112 )
+
+[node name="Node2D26" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 592, 96 )
+
+[node name="Node2D27" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 592, 40 )
+
+[node name="Node2D28" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 576, -8 )
+
+[node name="Node2D29" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -32 )
+
+[node name="Node2D30" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -24 )
+
+[node name="Node2D31" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -16 )
+
+[node name="Node2D32" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -16 )
+
+[node name="Node2D33" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -8 )
+
+[node name="Node2D34" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 624, -80 )
+
+[node name="Node2D35" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 808, -80 )
+
+[node name="Node2D36" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 824, -56 )
+
+[node name="Node2D37" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 824, -32 )
+
+[node name="Node2D38" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 808, -16 )
+
+[node name="Node2D39" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 824, -16 )
+
+[node name="Node2D40" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 832, -24 )
+
+[node name="Node2D41" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 904, -32 )
+
+[node name="Node2D42" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -56 )
+
+[node name="Node2D43" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -40 )
+
+[node name="Node2D44" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -24 )
+
+[node name="Node2D45" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -16 )
+
+[node name="Node2D46" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -8 )
+
+[node name="Node2D47" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, -8 )
+
+[node name="Node2D48" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1000, 0 )
+
+[node name="Node2D49" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 1136, -216 )
+
+[node name="Node2D2" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 32, 104 )
+rotation = 1.5708
+
+[node name="Node2D3" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 24, 64 )
+
+[node name="Node2D5" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 56, 48 )
+rotation = 1.5708
+
+[node name="Node2D6" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 72 )
+
+[node name="Node2D7" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 80 )
+
+[node name="Node2D8" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 88 )
+
+[node name="Node2D9" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 96 )
+
+[node name="Node2D10" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 112 )
+
+[node name="Node2D11" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 104 )
+
+[node name="Node2D12" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 120 )
+
+[node name="Node2D13" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 184, 128 )
+
+[node name="Node2D14" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 232, 56 )
+
+[node name="Node2D15" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 280, 40 )
+
+[node name="Node2D23" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 320, 56 )
+
+[node name="Node2D24" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 400, 48 )
+
+[node name="Node2D25" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 456, 112 )
+
+[node name="Node2D16" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 280, 48 )
+
+[node name="Node2D20" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 296, 104 )
+
+[node name="Node2D21" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 296, 112 )
+
+[node name="Node2D22" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 296, 120 )
+
+[node name="Node2D17" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 280, 56 )
+
+[node name="Node2D18" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 280, 64 )
+
+[node name="Node2D19" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 280, 72 )
+
+[node name="Node2D4" parent="YSort/wood" instance=ExtResource( 4 )]
+position = Vector2( 104, 40 )
+
+[node name="zombies" type="YSort" parent="YSort"]
+
+[node name="Zombie" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 192, 96 )
+
+[node name="Zombie2" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 376, 56 )
+
+[node name="Zombie3" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 360, 96 )
+
+[node name="Zombie4" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 464, 96 )
+
+[node name="Zombie5" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 496, 56 )
+
+[node name="Zombie10" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 696, -40 )
+
+[node name="Zombie11" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 720, -72 )
+
+[node name="Zombie12" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1168, -24 )
+
+[node name="Zombie13" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1096, -80 )
+
+[node name="Zombie14" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1120, -56 )
+
+[node name="Zombie15" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1160, -96 )
+
+[node name="Zombie16" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1080, -56 )
+
+[node name="Zombie17" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 976, -352 )
+
+[node name="Zombie18" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 976, -672 )
+
+[node name="Zombie19" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1344, -688 )
+
+[node name="Zombie20" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1352, -344 )
+
+[node name="Zombie6" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 640, 192 )
+
+[node name="Zombie7" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 776, 152 )
+
+[node name="Zombie8" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 928, 176 )
+
+[node name="Zombie9" parent="YSort/zombies" instance=ExtResource( 5 )]
+position = Vector2( 1024, 176 )
+
+[node name="dudee" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 96, 88 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/dudee"]
+remote_path = NodePath("../../../Camera2D")
+
+[node name="wizard_boss" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 1168, -512 )
+
+[node name="wallEdges" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge4" type="TextureRect" parent="wallEdges"]
+margin_left = 606.0
+margin_top = 85.0
+margin_right = 690.0
+margin_bottom = 99.0
+rect_rotation = -90.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge3" type="TextureRect" parent="wallEdges"]
+margin_left = 512.0
+margin_top = 223.0
+margin_right = 1120.0
+margin_bottom = 237.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="botom edge" type="TextureRect" parent="wallEdges"]
+margin_top = 127.0
+margin_right = 512.0
+margin_bottom = 141.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge2" type="TextureRect" parent="wallEdges"]
+margin_left = 1.0
+margin_top = -8.0
+margin_right = 137.0
+margin_bottom = 6.0
+rect_rotation = 90.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge" type="TextureRect" parent="wallEdges"]
+margin_left = 513.0
+margin_top = 131.0
+margin_right = 608.0
+margin_bottom = 145.0
+rect_rotation = 90.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+
+[node name="wall edge5" type="TextureRect" parent="wallEdges"]
+margin_left = 608.0
+margin_top = -0.75
+margin_right = 1215.0
+margin_bottom = 13.25
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge6" type="TextureRect" parent="wallEdges"]
+margin_left = 1112.0
+margin_top = -264.0
+margin_right = 1432.0
+margin_bottom = -250.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 218.7, 83.2378 )
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge7" type="TextureRect" parent="wallEdges"]
+margin_left = 819.0
+margin_top = -184.0
+margin_right = 999.0
+margin_bottom = -170.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 218.7, 83.2378 )
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall edge8" type="TextureRect" parent="wallEdges"]
+margin_left = 513.0
+margin_top = 131.0
+margin_right = 608.0
+margin_bottom = 145.0
+rect_rotation = 90.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+
+[node name="wall edge9" type="TextureRect" parent="wallEdges"]
+margin_left = 513.0
+margin_top = -140.0
+margin_right = 642.0
+margin_bottom = -126.0
+rect_rotation = 90.0
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

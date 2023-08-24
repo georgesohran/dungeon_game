@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://hurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fireball.png" type="Texture" id=3]
+[ext_resource path="res://fireball.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 5.02494
+
+[node name="fireball" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 3.14159
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="hitbox" parent="." instance=ExtResource( 1 )]
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 6 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 2 )]
+collision_layer = 20
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 7 )
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+
+[editable path="hitbox"]
+[editable path="hurtbox"]
