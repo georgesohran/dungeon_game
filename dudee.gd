@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var maxspeed = 50
+export var maxspeed = 60
 
 var veloc = Vector2.ZERO
 
